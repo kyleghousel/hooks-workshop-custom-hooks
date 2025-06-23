@@ -7,10 +7,15 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@ihollander/workshop-app": "^0.0.9",
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@styled-icons/heroicons-outline": "^10.47.0",
+    "@styled-icons/heroicons-solid": "^10.47.0",
     "codegen.macro": "^4.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -24,7 +29,9 @@
     "@testing-library/react-hooks": "^5.1.0",
     "@testing-library/user-event": "^12.1.10",
     "jest-localstorage-mock": "^2.4.8",
-    "msw": "^0.27.0"
+    "msw": "^0.27.0",
+    "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0"
   },
   "eslintConfig": {
     "extends": [

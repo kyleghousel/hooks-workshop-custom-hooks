@@ -1,0 +1,58 @@
+diff --git a/node_modules/@ihollander/workshop-app/dist/components/sandbox.js b/node_modules/@ihollander/workshop-app/dist/components/sandbox.js
+index 2e968a4..4bcf167 100644
+--- a/node_modules/@ihollander/workshop-app/dist/components/sandbox.js
++++ b/node_modules/@ihollander/workshop-app/dist/components/sandbox.js
+@@ -19,7 +19,7 @@ var _reactRouterDom = require("react-router-dom");
+ 
+ var _styledComponents = _interopRequireDefault(require("styled-components"));
+ 
+-var _ExternalLink = require("@styled-icons/heroicons-outline/ExternalLink");
++// var _ExternalLink = require("@styled-icons/heroicons-solid/ExternalLink';");
+ 
+ var _useDocumentTitle = _interopRequireDefault(require("../hooks/useDocumentTitle"));
+ 
+@@ -71,9 +71,11 @@ function Sandbox(_ref) {
+     href: exercise.isolatedPath,
+     target: "_blank",
+     rel: "noreferrer"
+-  }, /*#__PURE__*/_react.default.createElement(_ExternalLink.ExternalLink, {
+-    size: "20"
+-  }), " Open in new tab"), /*#__PURE__*/_react.default.createElement(Iframe, {
++  },
++  // /*#__PURE__*/_react.default.createElement(_ExternalLink.ExternalLink, {
++  //   size: "20"
++  // }),
++  " Open in new tab"), /*#__PURE__*/_react.default.createElement(Iframe, {
+     title: "".concat(readme.title, " Exercise"),
+     src: exercise.isolatedPath
+   })), /*#__PURE__*/_react.default.createElement(TabPanel, {
+@@ -101,9 +103,11 @@ function Sandbox(_ref) {
+       href: solution.isolatedPath,
+       target: "_blank",
+       rel: "noreferrer"
+-    }, /*#__PURE__*/_react.default.createElement(_ExternalLink.ExternalLink, {
+-      size: "20"
+-    }), " Open in new tab"), /*#__PURE__*/_react.default.createElement(Iframe, {
++    },
++    // /*#__PURE__*/_react.default.createElement(_ExternalLink.ExternalLink, {
++    //   size: "20"
++    // }),
++    " Open in new tab"), /*#__PURE__*/_react.default.createElement(Iframe, {
+       title: "".concat(readme.title, " Solution ").concat(solution.extraCreditNumber),
+       src: solution.isolatedPath
+     }));
+diff --git a/node_modules/@ihollander/workshop-app/dist/pages/exercise.js b/node_modules/@ihollander/workshop-app/dist/pages/exercise.js
+index 028da88..bc4ec38 100644
+--- a/node_modules/@ihollander/workshop-app/dist/pages/exercise.js
++++ b/node_modules/@ihollander/workshop-app/dist/pages/exercise.js
+@@ -51,7 +51,9 @@ function ExercisePage(_ref) {
+   var exerciseInfo = exercises[exerciseId];
+   if (!exerciseInfo) return /*#__PURE__*/_react.default.createElement(_fourOhFour.default, null);
+ 
+-  var Readme = /*#__PURE__*/_react.default.lazy(exerciseInfo.readme.importFn);
++  var Readme = () => /*#__PURE__*/_react.default.createElement("div", {
++    style: { padding: 20, fontFamily: "monospace", whiteSpace: "pre-wrap" }
++  }, exerciseInfo.readme.text || "📄 This exercise's README is not available.");
+ 
+   return /*#__PURE__*/_react.default.createElement(Wrapper, null, /*#__PURE__*/_react.default.createElement(_header.default, {
+     exercises: exercises,
